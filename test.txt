@@ -1,0 +1,6 @@
+ISNULL(UPPER(produit)) ? "NA" : UPPER(produit)
+
+GETUTCDATE()-->aggregate
+
+
+id_site int NOT NULL Identity,

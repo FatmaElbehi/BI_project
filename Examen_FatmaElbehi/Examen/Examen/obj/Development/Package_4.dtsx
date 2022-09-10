@@ -1,0 +1,1214 @@
+<?xml version="1.0"?>
+<DTS:Executable
+  DTS:refId="Package" xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:CreatorName="DESKTOP-SQDJ765\ASUS"
+  DTS:CreatorComputerName="DESKTOP-SQDJ765"
+  DTS:CreationDate="3/12/2022 2:26:23 PM"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{7E53D364-C34C-4A7A-9484-09ACE3110552}"
+  DTS:LastModifiedProductVersion="11.0.2100.60"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package_4"
+  DTS:DTSID="{C9F50227-6E82-46F2-BD9D-39637E04505B}"
+  DTS:CreationName="SSIS.Package.3">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-SQDJ765\FATMA.Examen SSIS]"
+      DTS:ObjectName="DESKTOP-SQDJ765\FATMA.Examen SSIS"
+      DTS:DTSID="{835867CE-32CF-477D-8F1E-1BA5961DC7D9}"
+      DTS:CreationName="OLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=DESKTOP-SQDJ765\FATMA;Initial Catalog=Examen SSIS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Extract_Data"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Extract_Data"
+      DTS:DTSID="{C5F384FD-9E30-49B1-A99F-38B1ACD7A116}"
+      DTS:Description="Data Flow Task"
+      DTS:CreationName="SSIS.Pipeline.3">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Extract_Data\ListeNOt Null"
+              name="ListeNOt Null"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              description="OLE DB Destination"
+              usesDispositions="true"
+              version="4"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4">
+              <properties>
+                <property
+                  name="CommandTimeout"
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out.">0</property>
+                <property
+                  name="OpenRowset"
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset.">[ListeNOt Null]</property>
+                <property
+                  name="OpenRowsetVariable"
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."></property>
+                <property
+                  name="SqlCommand"
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  name="DefaultCodePage"
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source.">1252</property>
+                <property
+                  name="AlwaysUseDefaultCodePage"
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data.">false</property>
+                <property
+                  name="AccessMode"
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  typeConverter="AccessMode">3</property>
+                <property
+                  name="FastLoadKeepIdentity"
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on.">false</property>
+                <property
+                  name="FastLoadKeepNulls"
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on.">false</property>
+                <property
+                  name="FastLoadOptions"
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on.">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  name="FastLoadMaxInsertCommitSize"
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on.">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extract_Data\ListeNOt Null.Connections[OleDbConnection]"
+                  name="OleDbConnection"
+                  description="The OLE DB runtime connection used to access the database."
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-SQDJ765\FATMA.Examen SSIS]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-SQDJ765\FATMA.Examen SSIS]" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Extract_Data\ListeNOt Null.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Destination Input"
+                  hasSideEffects="true"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Extract_Data\ListeNOt Null.Inputs[OLE DB Destination Input].Columns[Index]"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[Index]"
+                      externalMetadataColumnId="Package\Extract_Data\ListeNOt Null.Inputs[OLE DB Destination Input].ExternalColumns[Index]"
+                      cachedName="Index"
+                      cachedDataType="r8" />
+                    <inputColumn
+                      refId="Package\Extract_Data\ListeNOt Null.Inputs[OLE DB Destination Input].Columns[Prénom]"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[Prénom]"
+                      externalMetadataColumnId="Package\Extract_Data\ListeNOt Null.Inputs[OLE DB Destination Input].ExternalColumns[Prénom]"
+                      cachedName="Prénom"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\Extract_Data\ListeNOt Null.Inputs[OLE DB Destination Input].Columns[Nom]"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[Nom]"
+                      externalMetadataColumnId="Package\Extract_Data\ListeNOt Null.Inputs[OLE DB Destination Input].ExternalColumns[Nom]"
+                      cachedName="Nom"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\Extract_Data\ListeNOt Null.Inputs[OLE DB Destination Input].Columns[Date de Naissance]"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[Date de Naissance]"
+                      externalMetadataColumnId="Package\Extract_Data\ListeNOt Null.Inputs[OLE DB Destination Input].ExternalColumns[Date de Naissance]"
+                      cachedName="Date de Naissance"
+                      cachedDataType="dbTimeStamp" />
+                    <inputColumn
+                      refId="Package\Extract_Data\ListeNOt Null.Inputs[OLE DB Destination Input].Columns[Célibatairetatut Mariéarital]"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[Célibatairetatut Mariéarital]"
+                      externalMetadataColumnId="Package\Extract_Data\ListeNOt Null.Inputs[OLE DB Destination Input].ExternalColumns[Célibatairetatut Mariéarital]"
+                      cachedName="Célibatairetatut Mariéarital"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\Extract_Data\ListeNOt Null.Inputs[OLE DB Destination Input].Columns[Sexe]"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[Sexe]"
+                      externalMetadataColumnId="Package\Extract_Data\ListeNOt Null.Inputs[OLE DB Destination Input].ExternalColumns[Sexe]"
+                      cachedName="Sexe"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\Extract_Data\ListeNOt Null.Inputs[OLE DB Destination Input].Columns[Revenu annuel]"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[Revenu annuel]"
+                      externalMetadataColumnId="Package\Extract_Data\ListeNOt Null.Inputs[OLE DB Destination Input].ExternalColumns[Revenu annuel]"
+                      cachedName="Revenu annuel"
+                      cachedDataType="r8" />
+                    <inputColumn
+                      refId="Package\Extract_Data\ListeNOt Null.Inputs[OLE DB Destination Input].Columns[Enfant(s)]"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[Enfant(s)]"
+                      externalMetadataColumnId="Package\Extract_Data\ListeNOt Null.Inputs[OLE DB Destination Input].ExternalColumns[Enfant(s)]"
+                      cachedName="Enfant(s)"
+                      cachedDataType="r8" />
+                    <inputColumn
+                      refId="Package\Extract_Data\ListeNOt Null.Inputs[OLE DB Destination Input].Columns[Niveau d'étude]"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[Niveau d'étude]"
+                      externalMetadataColumnId="Package\Extract_Data\ListeNOt Null.Inputs[OLE DB Destination Input].ExternalColumns[Niveau d'étude]"
+                      cachedName="Niveau d'étude"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\Extract_Data\ListeNOt Null.Inputs[OLE DB Destination Input].Columns[Cat# Professionnelle]"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[Cat# Professionnelle]"
+                      externalMetadataColumnId="Package\Extract_Data\ListeNOt Null.Inputs[OLE DB Destination Input].ExternalColumns[Cat# Professionnelle]"
+                      cachedName="Cat# Professionnelle"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\Extract_Data\ListeNOt Null.Inputs[OLE DB Destination Input].Columns[Adresse]"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[Adresse]"
+                      externalMetadataColumnId="Package\Extract_Data\ListeNOt Null.Inputs[OLE DB Destination Input].ExternalColumns[Adresse]"
+                      cachedName="Adresse"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\Extract_Data\ListeNOt Null.Inputs[OLE DB Destination Input].Columns[fullname]"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[fullname]"
+                      externalMetadataColumnId="Package\Extract_Data\ListeNOt Null.Inputs[OLE DB Destination Input].ExternalColumns[fullname]"
+                      cachedName="fullname"
+                      cachedDataType="wstr"
+                      cachedLength="511" />
+                    <inputColumn
+                      refId="Package\Extract_Data\ListeNOt Null.Inputs[OLE DB Destination Input].Columns[status]"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[status]"
+                      externalMetadataColumnId="Package\Extract_Data\ListeNOt Null.Inputs[OLE DB Destination Input].ExternalColumns[status]"
+                      cachedName="status"
+                      cachedDataType="wstr"
+                      cachedLength="1" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extract_Data\ListeNOt Null.Inputs[OLE DB Destination Input].ExternalColumns[Index]"
+                      name="Index"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Extract_Data\ListeNOt Null.Inputs[OLE DB Destination Input].ExternalColumns[Prénom]"
+                      name="Prénom"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Extract_Data\ListeNOt Null.Inputs[OLE DB Destination Input].ExternalColumns[Nom]"
+                      name="Nom"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Extract_Data\ListeNOt Null.Inputs[OLE DB Destination Input].ExternalColumns[Date de Naissance]"
+                      name="Date de Naissance"
+                      dataType="dbTimeStamp" />
+                    <externalMetadataColumn
+                      refId="Package\Extract_Data\ListeNOt Null.Inputs[OLE DB Destination Input].ExternalColumns[Célibatairetatut Mariéarital]"
+                      name="Célibatairetatut Mariéarital"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Extract_Data\ListeNOt Null.Inputs[OLE DB Destination Input].ExternalColumns[Sexe]"
+                      name="Sexe"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Extract_Data\ListeNOt Null.Inputs[OLE DB Destination Input].ExternalColumns[Revenu annuel]"
+                      name="Revenu annuel"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Extract_Data\ListeNOt Null.Inputs[OLE DB Destination Input].ExternalColumns[Enfant(s)]"
+                      name="Enfant(s)"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Extract_Data\ListeNOt Null.Inputs[OLE DB Destination Input].ExternalColumns[Niveau d'étude]"
+                      name="Niveau d'étude"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Extract_Data\ListeNOt Null.Inputs[OLE DB Destination Input].ExternalColumns[Cat# Professionnelle]"
+                      name="Cat# Professionnelle"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Extract_Data\ListeNOt Null.Inputs[OLE DB Destination Input].ExternalColumns[Adresse]"
+                      name="Adresse"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Extract_Data\ListeNOt Null.Inputs[OLE DB Destination Input].ExternalColumns[fullname]"
+                      name="fullname"
+                      dataType="wstr"
+                      length="511" />
+                    <externalMetadataColumn
+                      refId="Package\Extract_Data\ListeNOt Null.Inputs[OLE DB Destination Input].ExternalColumns[status]"
+                      name="status"
+                      dataType="wstr"
+                      length="1" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Extract_Data\ListeNOt Null.Outputs[OLE DB Destination Error Output]"
+                  name="OLE DB Destination Error Output"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Extract_Data\ListeNOt Null.Inputs[OLE DB Destination Input]"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract_Data\ListeNOt Null.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Extract_Data\ListeNOt Null.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extract_Data\ListeNOt Null.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Extract_Data\ListeNOt Null.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Extract_Data\ListeNull"
+              name="ListeNull"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              description="OLE DB Destination"
+              usesDispositions="true"
+              version="4"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4">
+              <properties>
+                <property
+                  name="CommandTimeout"
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out.">0</property>
+                <property
+                  name="OpenRowset"
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset.">[ListeNull]</property>
+                <property
+                  name="OpenRowsetVariable"
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."></property>
+                <property
+                  name="SqlCommand"
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  name="DefaultCodePage"
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source.">1252</property>
+                <property
+                  name="AlwaysUseDefaultCodePage"
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data.">false</property>
+                <property
+                  name="AccessMode"
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  typeConverter="AccessMode">3</property>
+                <property
+                  name="FastLoadKeepIdentity"
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on.">false</property>
+                <property
+                  name="FastLoadKeepNulls"
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on.">false</property>
+                <property
+                  name="FastLoadOptions"
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on.">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  name="FastLoadMaxInsertCommitSize"
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on.">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extract_Data\ListeNull.Connections[OleDbConnection]"
+                  name="OleDbConnection"
+                  description="The OLE DB runtime connection used to access the database."
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-SQDJ765\FATMA.Examen SSIS]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-SQDJ765\FATMA.Examen SSIS]" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Extract_Data\ListeNull.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Destination Input"
+                  hasSideEffects="true"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Extract_Data\ListeNull.Inputs[OLE DB Destination Input].Columns[Index]"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[Index]"
+                      externalMetadataColumnId="Package\Extract_Data\ListeNull.Inputs[OLE DB Destination Input].ExternalColumns[Index]"
+                      cachedName="Index"
+                      cachedDataType="r8" />
+                    <inputColumn
+                      refId="Package\Extract_Data\ListeNull.Inputs[OLE DB Destination Input].Columns[Prénom]"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[Prénom]"
+                      externalMetadataColumnId="Package\Extract_Data\ListeNull.Inputs[OLE DB Destination Input].ExternalColumns[Prénom]"
+                      cachedName="Prénom"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\Extract_Data\ListeNull.Inputs[OLE DB Destination Input].Columns[Nom]"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[Nom]"
+                      externalMetadataColumnId="Package\Extract_Data\ListeNull.Inputs[OLE DB Destination Input].ExternalColumns[Nom]"
+                      cachedName="Nom"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\Extract_Data\ListeNull.Inputs[OLE DB Destination Input].Columns[Date de Naissance]"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[Date de Naissance]"
+                      externalMetadataColumnId="Package\Extract_Data\ListeNull.Inputs[OLE DB Destination Input].ExternalColumns[Date de Naissance]"
+                      cachedName="Date de Naissance"
+                      cachedDataType="dbTimeStamp" />
+                    <inputColumn
+                      refId="Package\Extract_Data\ListeNull.Inputs[OLE DB Destination Input].Columns[Célibatairetatut Mariéarital]"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[Célibatairetatut Mariéarital]"
+                      externalMetadataColumnId="Package\Extract_Data\ListeNull.Inputs[OLE DB Destination Input].ExternalColumns[Célibatairetatut Mariéarital]"
+                      cachedName="Célibatairetatut Mariéarital"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\Extract_Data\ListeNull.Inputs[OLE DB Destination Input].Columns[Sexe]"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[Sexe]"
+                      externalMetadataColumnId="Package\Extract_Data\ListeNull.Inputs[OLE DB Destination Input].ExternalColumns[Sexe]"
+                      cachedName="Sexe"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\Extract_Data\ListeNull.Inputs[OLE DB Destination Input].Columns[Revenu annuel]"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[Revenu annuel]"
+                      externalMetadataColumnId="Package\Extract_Data\ListeNull.Inputs[OLE DB Destination Input].ExternalColumns[Revenu annuel]"
+                      cachedName="Revenu annuel"
+                      cachedDataType="r8" />
+                    <inputColumn
+                      refId="Package\Extract_Data\ListeNull.Inputs[OLE DB Destination Input].Columns[Enfant(s)]"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[Enfant(s)]"
+                      externalMetadataColumnId="Package\Extract_Data\ListeNull.Inputs[OLE DB Destination Input].ExternalColumns[Enfant(s)]"
+                      cachedName="Enfant(s)"
+                      cachedDataType="r8" />
+                    <inputColumn
+                      refId="Package\Extract_Data\ListeNull.Inputs[OLE DB Destination Input].Columns[Niveau d'étude]"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[Niveau d'étude]"
+                      externalMetadataColumnId="Package\Extract_Data\ListeNull.Inputs[OLE DB Destination Input].ExternalColumns[Niveau d'étude]"
+                      cachedName="Niveau d'étude"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\Extract_Data\ListeNull.Inputs[OLE DB Destination Input].Columns[Cat# Professionnelle]"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[Cat# Professionnelle]"
+                      externalMetadataColumnId="Package\Extract_Data\ListeNull.Inputs[OLE DB Destination Input].ExternalColumns[Cat# Professionnelle]"
+                      cachedName="Cat# Professionnelle"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\Extract_Data\ListeNull.Inputs[OLE DB Destination Input].Columns[Adresse]"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[Adresse]"
+                      externalMetadataColumnId="Package\Extract_Data\ListeNull.Inputs[OLE DB Destination Input].ExternalColumns[Adresse]"
+                      cachedName="Adresse"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\Extract_Data\ListeNull.Inputs[OLE DB Destination Input].Columns[fullname]"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[fullname]"
+                      externalMetadataColumnId="Package\Extract_Data\ListeNull.Inputs[OLE DB Destination Input].ExternalColumns[fullname]"
+                      cachedName="fullname"
+                      cachedDataType="wstr"
+                      cachedLength="511" />
+                    <inputColumn
+                      refId="Package\Extract_Data\ListeNull.Inputs[OLE DB Destination Input].Columns[status]"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[status]"
+                      externalMetadataColumnId="Package\Extract_Data\ListeNull.Inputs[OLE DB Destination Input].ExternalColumns[status]"
+                      cachedName="status"
+                      cachedDataType="wstr"
+                      cachedLength="1" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extract_Data\ListeNull.Inputs[OLE DB Destination Input].ExternalColumns[Index]"
+                      name="Index"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Extract_Data\ListeNull.Inputs[OLE DB Destination Input].ExternalColumns[Prénom]"
+                      name="Prénom"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Extract_Data\ListeNull.Inputs[OLE DB Destination Input].ExternalColumns[Nom]"
+                      name="Nom"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Extract_Data\ListeNull.Inputs[OLE DB Destination Input].ExternalColumns[Date de Naissance]"
+                      name="Date de Naissance"
+                      dataType="dbTimeStamp" />
+                    <externalMetadataColumn
+                      refId="Package\Extract_Data\ListeNull.Inputs[OLE DB Destination Input].ExternalColumns[Célibatairetatut Mariéarital]"
+                      name="Célibatairetatut Mariéarital"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Extract_Data\ListeNull.Inputs[OLE DB Destination Input].ExternalColumns[Sexe]"
+                      name="Sexe"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Extract_Data\ListeNull.Inputs[OLE DB Destination Input].ExternalColumns[Revenu annuel]"
+                      name="Revenu annuel"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Extract_Data\ListeNull.Inputs[OLE DB Destination Input].ExternalColumns[Enfant(s)]"
+                      name="Enfant(s)"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Extract_Data\ListeNull.Inputs[OLE DB Destination Input].ExternalColumns[Niveau d'étude]"
+                      name="Niveau d'étude"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Extract_Data\ListeNull.Inputs[OLE DB Destination Input].ExternalColumns[Cat# Professionnelle]"
+                      name="Cat# Professionnelle"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Extract_Data\ListeNull.Inputs[OLE DB Destination Input].ExternalColumns[Adresse]"
+                      name="Adresse"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Extract_Data\ListeNull.Inputs[OLE DB Destination Input].ExternalColumns[fullname]"
+                      name="fullname"
+                      dataType="wstr"
+                      length="511" />
+                    <externalMetadataColumn
+                      refId="Package\Extract_Data\ListeNull.Inputs[OLE DB Destination Input].ExternalColumns[status]"
+                      name="status"
+                      dataType="wstr"
+                      length="1" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Extract_Data\ListeNull.Outputs[OLE DB Destination Error Output]"
+                  name="OLE DB Destination Error Output"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Extract_Data\ListeNull.Inputs[OLE DB Destination Input]"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract_Data\ListeNull.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Extract_Data\ListeNull.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extract_Data\ListeNull.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Extract_Data\ListeNull.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Extract_Data\Sales_Data_Source"
+              name="Sales_Data_Source"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              description="OLE DB Source"
+              usesDispositions="true"
+              version="7"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7">
+              <properties>
+                <property
+                  name="CommandTimeout"
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out.">0</property>
+                <property
+                  name="OpenRowset"
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset.">[dbo].[Sales]</property>
+                <property
+                  name="OpenRowsetVariable"
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."></property>
+                <property
+                  name="SqlCommand"
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  name="SqlCommandVariable"
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."></property>
+                <property
+                  name="DefaultCodePage"
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source.">1252</property>
+                <property
+                  name="AlwaysUseDefaultCodePage"
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data.">false</property>
+                <property
+                  name="AccessMode"
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  typeConverter="AccessMode">0</property>
+                <property
+                  name="ParameterMapping"
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extract_Data\Sales_Data_Source.Connections[OleDbConnection]"
+                  name="OleDbConnection"
+                  description="The OLE DB runtime connection used to access the database."
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-SQDJ765\FATMA.Examen SSIS]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-SQDJ765\FATMA.Examen SSIS]" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[Index]"
+                      name="Index"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[Index]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].ExternalColumns[Index]" />
+                    <outputColumn
+                      refId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[Prénom]"
+                      name="Prénom"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[Prénom]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].ExternalColumns[Prénom]" />
+                    <outputColumn
+                      refId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[Nom]"
+                      name="Nom"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[Nom]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].ExternalColumns[Nom]" />
+                    <outputColumn
+                      refId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[Date de Naissance]"
+                      name="Date de Naissance"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[Date de Naissance]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].ExternalColumns[Date de Naissance]" />
+                    <outputColumn
+                      refId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[Célibatairetatut Mariéarital]"
+                      name="Célibatairetatut Mariéarital"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[Célibatairetatut Mariéarital]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].ExternalColumns[Célibatairetatut Mariéarital]" />
+                    <outputColumn
+                      refId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[Sexe]"
+                      name="Sexe"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[Sexe]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].ExternalColumns[Sexe]" />
+                    <outputColumn
+                      refId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[Revenu annuel]"
+                      name="Revenu annuel"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[Revenu annuel]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].ExternalColumns[Revenu annuel]" />
+                    <outputColumn
+                      refId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[Enfant(s)]"
+                      name="Enfant(s)"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[Enfant(s)]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].ExternalColumns[Enfant(s)]" />
+                    <outputColumn
+                      refId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[Niveau d'étude]"
+                      name="Niveau d'étude"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[Niveau d'étude]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].ExternalColumns[Niveau d'étude]" />
+                    <outputColumn
+                      refId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[Cat# Professionnelle]"
+                      name="Cat# Professionnelle"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[Cat# Professionnelle]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].ExternalColumns[Cat# Professionnelle]" />
+                    <outputColumn
+                      refId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[Adresse]"
+                      name="Adresse"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[Adresse]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].ExternalColumns[Adresse]" />
+                    <outputColumn
+                      refId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[fullname]"
+                      name="fullname"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[fullname]"
+                      length="511"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].ExternalColumns[fullname]" />
+                    <outputColumn
+                      refId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[status]"
+                      name="status"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[status]"
+                      length="1"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].ExternalColumns[status]" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].ExternalColumns[Index]"
+                      name="Index"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].ExternalColumns[Prénom]"
+                      name="Prénom"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].ExternalColumns[Nom]"
+                      name="Nom"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].ExternalColumns[Date de Naissance]"
+                      name="Date de Naissance"
+                      dataType="dbTimeStamp" />
+                    <externalMetadataColumn
+                      refId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].ExternalColumns[Célibatairetatut Mariéarital]"
+                      name="Célibatairetatut Mariéarital"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].ExternalColumns[Sexe]"
+                      name="Sexe"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].ExternalColumns[Revenu annuel]"
+                      name="Revenu annuel"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].ExternalColumns[Enfant(s)]"
+                      name="Enfant(s)"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].ExternalColumns[Niveau d'étude]"
+                      name="Niveau d'étude"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].ExternalColumns[Cat# Professionnelle]"
+                      name="Cat# Professionnelle"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].ExternalColumns[Adresse]"
+                      name="Adresse"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].ExternalColumns[fullname]"
+                      name="fullname"
+                      dataType="wstr"
+                      length="511" />
+                    <externalMetadataColumn
+                      refId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].ExternalColumns[status]"
+                      name="status"
+                      dataType="wstr"
+                      length="1" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Error Output]"
+                  name="OLE DB Source Error Output"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Error Output].Columns[Index]"
+                      name="Index"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Error Output].Columns[Index]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Error Output].Columns[Prénom]"
+                      name="Prénom"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Error Output].Columns[Prénom]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Error Output].Columns[Nom]"
+                      name="Nom"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Error Output].Columns[Nom]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Error Output].Columns[Date de Naissance]"
+                      name="Date de Naissance"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Error Output].Columns[Date de Naissance]"
+                      dataType="dbTimeStamp" />
+                    <outputColumn
+                      refId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Error Output].Columns[Célibatairetatut Mariéarital]"
+                      name="Célibatairetatut Mariéarital"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Error Output].Columns[Célibatairetatut Mariéarital]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Error Output].Columns[Sexe]"
+                      name="Sexe"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Error Output].Columns[Sexe]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Error Output].Columns[Revenu annuel]"
+                      name="Revenu annuel"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Error Output].Columns[Revenu annuel]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Error Output].Columns[Enfant(s)]"
+                      name="Enfant(s)"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Error Output].Columns[Enfant(s)]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Error Output].Columns[Niveau d'étude]"
+                      name="Niveau d'étude"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Error Output].Columns[Niveau d'étude]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Error Output].Columns[Cat# Professionnelle]"
+                      name="Cat# Professionnelle"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Error Output].Columns[Cat# Professionnelle]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Error Output].Columns[Adresse]"
+                      name="Adresse"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Error Output].Columns[Adresse]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Error Output].Columns[fullname]"
+                      name="fullname"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Error Output].Columns[fullname]"
+                      length="511"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Error Output].Columns[status]"
+                      name="status"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Error Output].Columns[status]"
+                      length="1"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Extract_Data\Split_Sales_Data"
+              name="Split_Sales_Data"
+              componentClassID="{7F88F654-4E20-4D14-84F4-AF9C925D3087}"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              usesDispositions="true"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0">
+              <inputs>
+                <input
+                  refId="Package\Extract_Data\Split_Sales_Data.Inputs[Conditional Split Input]"
+                  name="Conditional Split Input"
+                  description="Input to the Conditional Split Transformation">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Extract_Data\Split_Sales_Data.Inputs[Conditional Split Input].Columns[Niveau d'étude]"
+                      lineageId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[Niveau d'étude]"
+                      cachedName="Niveau d'étude"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Extract_Data\Split_Sales_Data.Outputs[IsNull]"
+                  name="IsNull"
+                  description="Output 1 of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Extract_Data\Split_Sales_Data.Inputs[Conditional Split Input]"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      name="Expression"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      containsID="true">#{Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[Niveau d'étude]} == "NA"</property>
+                    <property
+                      name="FriendlyExpression"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      containsID="true"
+                      expressionType="Notify">[Niveau d'étude] == "NA"</property>
+                    <property
+                      name="EvaluationOrder"
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value.">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Extract_Data\Split_Sales_Data.Outputs[Not_Null]"
+                  name="Not_Null"
+                  description="Output 2 of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Extract_Data\Split_Sales_Data.Inputs[Conditional Split Input]"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      name="Expression"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      containsID="true">#{Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output].Columns[Niveau d'étude]} != "NA"</property>
+                    <property
+                      name="FriendlyExpression"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      containsID="true"
+                      expressionType="Notify">[Niveau d'étude] != "NA"</property>
+                    <property
+                      name="EvaluationOrder"
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value.">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Extract_Data\Split_Sales_Data.Outputs[Conditional Split Default Output]"
+                  name="Conditional Split Default Output"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Extract_Data\Split_Sales_Data.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      name="IsDefaultOut"
+                      dataType="System.Boolean">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Extract_Data\Split_Sales_Data.Outputs[Conditional Split Error Output]"
+                  name="Conditional Split Error Output"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Extract_Data\Split_Sales_Data.Inputs[Conditional Split Input]"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract_Data\Split_Sales_Data.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Extract_Data\Split_Sales_Data.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extract_Data\Split_Sales_Data.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Extract_Data\Split_Sales_Data.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Extract_Data.Paths[IsNull]"
+              name="IsNull"
+              startId="Package\Extract_Data\Split_Sales_Data.Outputs[IsNull]"
+              endId="Package\Extract_Data\ListeNull.Inputs[OLE DB Destination Input]" />
+            <path
+              refId="Package\Extract_Data.Paths[Not_Null]"
+              name="Not_Null"
+              startId="Package\Extract_Data\Split_Sales_Data.Outputs[Not_Null]"
+              endId="Package\Extract_Data\ListeNOt Null.Inputs[OLE DB Destination Input]" />
+            <path
+              refId="Package\Extract_Data.Paths[OLE DB Source Output]"
+              name="OLE DB Source Output"
+              startId="Package\Extract_Data\Sales_Data_Source.Outputs[OLE DB Source Output]"
+              endId="Package\Extract_Data\Split_Sales_Data.Inputs[Conditional Split Input]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="139,42"
+          Id="Package\Extract_Data"
+          TopLeft="311,91" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Extract_Data">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Extract_Data\Sales_Data_Source"
+          TopLeft="351,46" />
+        <NodeLayout
+          Size="174,42"
+          Id="Package\Extract_Data\Split_Sales_Data"
+          TopLeft="355,153" />
+        <EdgeLayout
+          Id="Package\Extract_Data.Paths[OLE DB Source Output]"
+          TopLeft="438.5,88">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,65"
+              Start="0,0"
+              End="0,57.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="118,42"
+          Id="Package\Extract_Data\ListeNull"
+          TopLeft="192,244" />
+        <NodeLayout
+          Size="139,42"
+          Id="Package\Extract_Data\ListeNOt Null"
+          TopLeft="483,243" />
+        <EdgeLayout
+          Id="Package\Extract_Data.Paths[IsNull]"
+          TopLeft="414.333333333333,195">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-163.333333333333,49"
+              Start="0,0"
+              End="-163.333333333333,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.8678815489749" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.8678815489749"
+                    Point2="0,19.8678815489749"
+                    Point3="-4,19.8678815489749" />
+                  <mssgle:LineSegment
+                    End="-159.333333333333,19.8678815489749" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-159.333333333333,19.8678815489749"
+                    Point2="-163.333333333333,19.8678815489749"
+                    Point3="-163.333333333333,23.8678815489749" />
+                  <mssgle:LineSegment
+                    End="-163.333333333333,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-94.6053971354167,24.8678815489749,25.8774609375,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Extract_Data.Paths[Not_Null]"
+          TopLeft="469.666666666667,195">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="82.8333333333334,48"
+              Start="0,0"
+              End="82.8333333333334,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.4624145785877" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.4624145785877"
+                    Point2="0,19.4624145785877"
+                    Point3="4,19.4624145785877" />
+                  <mssgle:LineSegment
+                    End="78.8333333333334,19.4624145785877" />
+                  <mssgle:CubicBezierSegment
+                    Point1="78.8333333333334,19.4624145785877"
+                    Point2="82.8333333333334,19.4624145785877"
+                    Point3="82.8333333333334,23.4624145785877" />
+                  <mssgle:LineSegment
+                    End="82.8333333333334,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="22.2645377604167,24.4624145785877,38.3042578125,11.0625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extract_Data\Sales_Data_Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extract_Data\ListeNull">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extract_Data\ListeNOt Null">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

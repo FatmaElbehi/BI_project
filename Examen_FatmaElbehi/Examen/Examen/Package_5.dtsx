@@ -1,0 +1,851 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable
+  DTS:refId="Package" xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:CreatorName="DESKTOP-SQDJ765\ASUS"
+  DTS:CreatorComputerName="DESKTOP-SQDJ765"
+  DTS:CreationDate="3/12/2022 2:32:54 PM"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{A00DFC36-4F1D-4F9C-A26D-2DCA2463F196}"
+  DTS:LastModifiedProductVersion="11.0.2100.60"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package_5"
+  DTS:DTSID="{DE931AB0-D482-4DB4-88E6-48ED6392BC79}"
+  DTS:CreationName="SSIS.Package.3">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-SQDJ765\FATMA.Examen SSIS]"
+      DTS:ObjectName="DESKTOP-SQDJ765\FATMA.Examen SSIS"
+      DTS:DTSID="{721445AF-9E7A-45E6-ABE4-2937E8AEE586}"
+      DTS:CreationName="OLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=DESKTOP-SQDJ765\FATMA;Initial Catalog=Examen SSIS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:ObjectName="Flat File Connection Manager"
+      DTS:DTSID="{93A1587A-54B4-43AC-AD11-7441BE391699}"
+      DTS:CreationName="FLATFILE">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\ASUS\Desktop\BI\Examen_FatmaElbehi\Examen\resultat_calcul.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Revenu annuel"
+              DTS:DTSID="{AB3BB928-6DAC-4FF2-ADDF-A57039AA3D40}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Enfant(s)"
+              DTS:DTSID="{8AA605C9-D83C-4B90-B43D-72B8DA493FE9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Avg_Revenu annuel"
+              DTS:DTSID="{E1E0511C-AF52-4CD9-814F-4DA83F29C899}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="19"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Niveau d'étude"
+              DTS:DTSID="{F8627202-53D6-4F9C-8BE6-3ACFC075ACD5}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Aggregate_Data"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Aggregate_Data"
+      DTS:DTSID="{437A6AC7-328B-4806-BBC2-3F7200DE774E}"
+      DTS:Description="Data Flow Task"
+      DTS:CreationName="SSIS.Pipeline.3">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Aggregate_Data\Aggregate_Sales_Data"
+              name="Aggregate_Sales_Data"
+              componentClassID="{5B201335-B360-485C-BB93-75C34E09B3D3}"
+              description="Aggregates data with functions such as Average, Sum, Count, Max, and Min. For example, group data to compute the sum of sales per product or the average visits per day."
+              version="3"
+              contactInfo="Aggregate;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3">
+              <properties>
+                <property
+                  name="KeyScale"
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  name="Keys"
+                  dataType="System.Null"
+                  description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence." />
+                <property
+                  name="CountDistinctScale"
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of distinct values in a column that the aggregation counts distinctly. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no CountDistinctScale value is used."
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  name="CountDistinctKeys"
+                  dataType="System.Null"
+                  description="Specifies the exact number of distinct values in a column that the aggregation counts distinctly. If a CountDistinctScale value is specified, the value in CountDistinctKeys takes precedence." />
+                <property
+                  name="AutoExtendFactor"
+                  dataType="System.Int32"
+                  description="Specifies the percentage by which memory can be extended during the aggregation. Valid values are between 1 and 100.">25</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Aggregate_Data\Aggregate_Sales_Data.Inputs[Aggregate Input 1]"
+                  name="Aggregate Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Aggregate_Data\Aggregate_Sales_Data.Inputs[Aggregate Input 1].Columns[Revenu annuel]"
+                      lineageId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].Columns[Revenu annuel]"
+                      cachedName="Revenu annuel"
+                      cachedDataType="r8" />
+                    <inputColumn
+                      refId="Package\Aggregate_Data\Aggregate_Sales_Data.Inputs[Aggregate Input 1].Columns[Enfant(s)]"
+                      lineageId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].Columns[Enfant(s)]"
+                      cachedName="Enfant(s)"
+                      cachedDataType="r8" />
+                    <inputColumn
+                      refId="Package\Aggregate_Data\Aggregate_Sales_Data.Inputs[Aggregate Input 1].Columns[Niveau d'étude]"
+                      lineageId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].Columns[Niveau d'étude]"
+                      cachedName="Niveau d'étude"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Aggregate_Data\Aggregate_Sales_Data.Outputs[Aggregate Output 1]"
+                  name="Aggregate Output 1">
+                  <properties>
+                    <property
+                      name="KeyScale"
+                      dataType="System.Int32"
+                      description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                      typeConverter="KeyScaleType">0</property>
+                    <property
+                      name="Keys"
+                      dataType="System.Null"
+                      description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence." />
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Aggregate_Data\Aggregate_Sales_Data.Outputs[Aggregate Output 1].Columns[Revenu annuel]"
+                      name="Revenu annuel"
+                      lineageId="Package\Aggregate_Data\Aggregate_Sales_Data.Outputs[Aggregate Output 1].Columns[Revenu annuel]"
+                      dataType="r8">
+                      <properties>
+                        <property
+                          name="AggregationColumnId"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          containsID="true">#{Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].Columns[Revenu annuel]}</property>
+                        <property
+                          name="AggregationType"
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          typeConverter="AggregationType">6</property>
+                        <property
+                          name="IsBig"
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type.">1</property>
+                        <property
+                          name="AggregationComparisonFlags"
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options.">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Aggregate_Data\Aggregate_Sales_Data.Outputs[Aggregate Output 1].Columns[Enfant(s)]"
+                      name="Enfant(s)"
+                      lineageId="Package\Aggregate_Data\Aggregate_Sales_Data.Outputs[Aggregate Output 1].Columns[Enfant(s)]"
+                      dataType="r8">
+                      <properties>
+                        <property
+                          name="AggregationColumnId"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          containsID="true">#{Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].Columns[Enfant(s)]}</property>
+                        <property
+                          name="AggregationType"
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          typeConverter="AggregationType">7</property>
+                        <property
+                          name="IsBig"
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type.">1</property>
+                        <property
+                          name="AggregationComparisonFlags"
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options.">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Aggregate_Data\Aggregate_Sales_Data.Outputs[Aggregate Output 1].Columns[Avg_Revenu annuel]"
+                      name="Avg_Revenu annuel"
+                      lineageId="Package\Aggregate_Data\Aggregate_Sales_Data.Outputs[Aggregate Output 1].Columns[Avg_Revenu annuel]"
+                      dataType="r8">
+                      <properties>
+                        <property
+                          name="AggregationColumnId"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          containsID="true">#{Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].Columns[Revenu annuel]}</property>
+                        <property
+                          name="AggregationType"
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          typeConverter="AggregationType">5</property>
+                        <property
+                          name="IsBig"
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type.">1</property>
+                        <property
+                          name="AggregationComparisonFlags"
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options.">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Aggregate_Data\Aggregate_Sales_Data.Outputs[Aggregate Output 1].Columns[Niveau d'étude]"
+                      name="Niveau d'étude"
+                      lineageId="Package\Aggregate_Data\Aggregate_Sales_Data.Outputs[Aggregate Output 1].Columns[Niveau d'étude]"
+                      dataType="ui4">
+                      <properties>
+                        <property
+                          name="AggregationColumnId"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          containsID="true">#{Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].Columns[Niveau d'étude]}</property>
+                        <property
+                          name="AggregationType"
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          typeConverter="AggregationType">3</property>
+                        <property
+                          name="IsBig"
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type.">1</property>
+                        <property
+                          name="AggregationComparisonFlags"
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options.">0</property>
+                        <property
+                          name="CountDistinctScale"
+                          dataType="System.Int32"
+                          description="Specifies the approximate number of distinct values in a column that the aggregation counts distinctly. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no CountDistinctScale value is used.">0</property>
+                        <property
+                          name="CountDistinctKeys"
+                          dataType="System.UInt32"
+                          description="Specifies the exact number of distinct values in a column that the aggregation counts distinctly. If a CountDistinctScale value is specified, the value in CountDistinctKeys takes precedence.">0</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Aggregate_Data\Not_Null_Data"
+              name="Not_Null_Data"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              description="OLE DB Source"
+              usesDispositions="true"
+              version="7"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7">
+              <properties>
+                <property
+                  name="CommandTimeout"
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out.">0</property>
+                <property
+                  name="OpenRowset"
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset.">[dbo].[ListeNOt Null]</property>
+                <property
+                  name="OpenRowsetVariable"
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."></property>
+                <property
+                  name="SqlCommand"
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  name="SqlCommandVariable"
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."></property>
+                <property
+                  name="DefaultCodePage"
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source.">1252</property>
+                <property
+                  name="AlwaysUseDefaultCodePage"
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data.">false</property>
+                <property
+                  name="AccessMode"
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  typeConverter="AccessMode">0</property>
+                <property
+                  name="ParameterMapping"
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Aggregate_Data\Not_Null_Data.Connections[OleDbConnection]"
+                  name="OleDbConnection"
+                  description="The OLE DB runtime connection used to access the database."
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-SQDJ765\FATMA.Examen SSIS]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-SQDJ765\FATMA.Examen SSIS]" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].Columns[Index]"
+                      name="Index"
+                      lineageId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].Columns[Index]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].ExternalColumns[Index]" />
+                    <outputColumn
+                      refId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].Columns[Prénom]"
+                      name="Prénom"
+                      lineageId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].Columns[Prénom]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].ExternalColumns[Prénom]" />
+                    <outputColumn
+                      refId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].Columns[Nom]"
+                      name="Nom"
+                      lineageId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].Columns[Nom]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].ExternalColumns[Nom]" />
+                    <outputColumn
+                      refId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].Columns[Date de Naissance]"
+                      name="Date de Naissance"
+                      lineageId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].Columns[Date de Naissance]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].ExternalColumns[Date de Naissance]" />
+                    <outputColumn
+                      refId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].Columns[Célibatairetatut Mariéarital]"
+                      name="Célibatairetatut Mariéarital"
+                      lineageId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].Columns[Célibatairetatut Mariéarital]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].ExternalColumns[Célibatairetatut Mariéarital]" />
+                    <outputColumn
+                      refId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].Columns[Sexe]"
+                      name="Sexe"
+                      lineageId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].Columns[Sexe]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].ExternalColumns[Sexe]" />
+                    <outputColumn
+                      refId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].Columns[Revenu annuel]"
+                      name="Revenu annuel"
+                      lineageId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].Columns[Revenu annuel]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].ExternalColumns[Revenu annuel]" />
+                    <outputColumn
+                      refId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].Columns[Enfant(s)]"
+                      name="Enfant(s)"
+                      lineageId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].Columns[Enfant(s)]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].ExternalColumns[Enfant(s)]" />
+                    <outputColumn
+                      refId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].Columns[Niveau d'étude]"
+                      name="Niveau d'étude"
+                      lineageId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].Columns[Niveau d'étude]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].ExternalColumns[Niveau d'étude]" />
+                    <outputColumn
+                      refId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].Columns[Cat# Professionnelle]"
+                      name="Cat# Professionnelle"
+                      lineageId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].Columns[Cat# Professionnelle]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].ExternalColumns[Cat# Professionnelle]" />
+                    <outputColumn
+                      refId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].Columns[Adresse]"
+                      name="Adresse"
+                      lineageId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].Columns[Adresse]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].ExternalColumns[Adresse]" />
+                    <outputColumn
+                      refId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].Columns[fullname]"
+                      name="fullname"
+                      lineageId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].Columns[fullname]"
+                      length="511"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].ExternalColumns[fullname]" />
+                    <outputColumn
+                      refId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].Columns[status]"
+                      name="status"
+                      lineageId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].Columns[status]"
+                      length="1"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].ExternalColumns[status]" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].ExternalColumns[Index]"
+                      name="Index"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].ExternalColumns[Prénom]"
+                      name="Prénom"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].ExternalColumns[Nom]"
+                      name="Nom"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].ExternalColumns[Date de Naissance]"
+                      name="Date de Naissance"
+                      dataType="dbTimeStamp" />
+                    <externalMetadataColumn
+                      refId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].ExternalColumns[Célibatairetatut Mariéarital]"
+                      name="Célibatairetatut Mariéarital"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].ExternalColumns[Sexe]"
+                      name="Sexe"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].ExternalColumns[Revenu annuel]"
+                      name="Revenu annuel"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].ExternalColumns[Enfant(s)]"
+                      name="Enfant(s)"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].ExternalColumns[Niveau d'étude]"
+                      name="Niveau d'étude"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].ExternalColumns[Cat# Professionnelle]"
+                      name="Cat# Professionnelle"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].ExternalColumns[Adresse]"
+                      name="Adresse"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].ExternalColumns[fullname]"
+                      name="fullname"
+                      dataType="wstr"
+                      length="511" />
+                    <externalMetadataColumn
+                      refId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output].ExternalColumns[status]"
+                      name="status"
+                      dataType="wstr"
+                      length="1" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Error Output]"
+                  name="OLE DB Source Error Output"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Error Output].Columns[Index]"
+                      name="Index"
+                      lineageId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Error Output].Columns[Index]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Error Output].Columns[Prénom]"
+                      name="Prénom"
+                      lineageId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Error Output].Columns[Prénom]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Error Output].Columns[Nom]"
+                      name="Nom"
+                      lineageId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Error Output].Columns[Nom]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Error Output].Columns[Date de Naissance]"
+                      name="Date de Naissance"
+                      lineageId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Error Output].Columns[Date de Naissance]"
+                      dataType="dbTimeStamp" />
+                    <outputColumn
+                      refId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Error Output].Columns[Célibatairetatut Mariéarital]"
+                      name="Célibatairetatut Mariéarital"
+                      lineageId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Error Output].Columns[Célibatairetatut Mariéarital]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Error Output].Columns[Sexe]"
+                      name="Sexe"
+                      lineageId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Error Output].Columns[Sexe]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Error Output].Columns[Revenu annuel]"
+                      name="Revenu annuel"
+                      lineageId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Error Output].Columns[Revenu annuel]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Error Output].Columns[Enfant(s)]"
+                      name="Enfant(s)"
+                      lineageId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Error Output].Columns[Enfant(s)]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Error Output].Columns[Niveau d'étude]"
+                      name="Niveau d'étude"
+                      lineageId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Error Output].Columns[Niveau d'étude]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Error Output].Columns[Cat# Professionnelle]"
+                      name="Cat# Professionnelle"
+                      lineageId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Error Output].Columns[Cat# Professionnelle]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Error Output].Columns[Adresse]"
+                      name="Adresse"
+                      lineageId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Error Output].Columns[Adresse]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Error Output].Columns[fullname]"
+                      name="fullname"
+                      lineageId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Error Output].Columns[fullname]"
+                      length="511"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Error Output].Columns[status]"
+                      name="status"
+                      lineageId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Error Output].Columns[status]"
+                      length="1"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Aggregate_Data\resultat_calcul"
+              name="resultat_calcul"
+              componentClassID="{8DA75FED-1B7C-407D-B2AD-2B24209CCCA4}"
+              description="Flat File Destination"
+              localeId="1033"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0">
+              <properties>
+                <property
+                  name="Overwrite"
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file.">true</property>
+                <property
+                  name="Header"
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify" />
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Aggregate_Data\resultat_calcul.Connections[FlatFileConnection]"
+                  name="FlatFileConnection"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Aggregate_Data\resultat_calcul.Inputs[Flat File Destination Input]"
+                  name="Flat File Destination Input"
+                  hasSideEffects="true">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Aggregate_Data\resultat_calcul.Inputs[Flat File Destination Input].Columns[Revenu annuel]"
+                      lineageId="Package\Aggregate_Data\Aggregate_Sales_Data.Outputs[Aggregate Output 1].Columns[Revenu annuel]"
+                      externalMetadataColumnId="Package\Aggregate_Data\resultat_calcul.Inputs[Flat File Destination Input].ExternalColumns[Revenu annuel]"
+                      cachedName="Revenu annuel"
+                      cachedDataType="r8" />
+                    <inputColumn
+                      refId="Package\Aggregate_Data\resultat_calcul.Inputs[Flat File Destination Input].Columns[Enfant(s)]"
+                      lineageId="Package\Aggregate_Data\Aggregate_Sales_Data.Outputs[Aggregate Output 1].Columns[Enfant(s)]"
+                      externalMetadataColumnId="Package\Aggregate_Data\resultat_calcul.Inputs[Flat File Destination Input].ExternalColumns[Enfant(s)]"
+                      cachedName="Enfant(s)"
+                      cachedDataType="r8" />
+                    <inputColumn
+                      refId="Package\Aggregate_Data\resultat_calcul.Inputs[Flat File Destination Input].Columns[Avg_Revenu annuel]"
+                      lineageId="Package\Aggregate_Data\Aggregate_Sales_Data.Outputs[Aggregate Output 1].Columns[Avg_Revenu annuel]"
+                      externalMetadataColumnId="Package\Aggregate_Data\resultat_calcul.Inputs[Flat File Destination Input].ExternalColumns[Avg_Revenu annuel]"
+                      cachedName="Avg_Revenu annuel"
+                      cachedDataType="r8" />
+                    <inputColumn
+                      refId="Package\Aggregate_Data\resultat_calcul.Inputs[Flat File Destination Input].Columns[Niveau d'étude]"
+                      lineageId="Package\Aggregate_Data\Aggregate_Sales_Data.Outputs[Aggregate Output 1].Columns[Niveau d'étude]"
+                      externalMetadataColumnId="Package\Aggregate_Data\resultat_calcul.Inputs[Flat File Destination Input].ExternalColumns[Niveau d'étude]"
+                      cachedName="Niveau d'étude"
+                      cachedDataType="ui4" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Aggregate_Data\resultat_calcul.Inputs[Flat File Destination Input].ExternalColumns[Revenu annuel]"
+                      name="Revenu annuel"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Aggregate_Data\resultat_calcul.Inputs[Flat File Destination Input].ExternalColumns[Enfant(s)]"
+                      name="Enfant(s)"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Aggregate_Data\resultat_calcul.Inputs[Flat File Destination Input].ExternalColumns[Avg_Revenu annuel]"
+                      name="Avg_Revenu annuel"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Aggregate_Data\resultat_calcul.Inputs[Flat File Destination Input].ExternalColumns[Niveau d'étude]"
+                      name="Niveau d'étude"
+                      dataType="ui4" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Aggregate_Data.Paths[Aggregate Output 1]"
+              name="Aggregate Output 1"
+              startId="Package\Aggregate_Data\Aggregate_Sales_Data.Outputs[Aggregate Output 1]"
+              endId="Package\Aggregate_Data\resultat_calcul.Inputs[Flat File Destination Input]" />
+            <path
+              refId="Package\Aggregate_Data.Paths[OLE DB Source Output]"
+              name="OLE DB Source Output"
+              startId="Package\Aggregate_Data\Not_Null_Data.Outputs[OLE DB Source Output]"
+              endId="Package\Aggregate_Data\Aggregate_Sales_Data.Inputs[Aggregate Input 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Aggregate_Data"
+          TopLeft="251,81" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Aggregate_Data">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="146,42"
+          Id="Package\Aggregate_Data\Not_Null_Data"
+          TopLeft="306,57" />
+        <NodeLayout
+          Size="184,42"
+          Id="Package\Aggregate_Data\Aggregate_Sales_Data"
+          TopLeft="306,167" />
+        <EdgeLayout
+          Id="Package\Aggregate_Data.Paths[OLE DB Source Output]"
+          TopLeft="379,99">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="19,68"
+              Start="0,0"
+              End="19,60.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30"
+                    Point2="0,34"
+                    Point3="4,34" />
+                  <mssgle:LineSegment
+                    End="15,34" />
+                  <mssgle:CubicBezierSegment
+                    Point1="15,34"
+                    Point2="19,34"
+                    Point3="19,38" />
+                  <mssgle:LineSegment
+                    End="19,60.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Aggregate_Data\resultat_calcul"
+          TopLeft="334,265" />
+        <EdgeLayout
+          Id="Package\Aggregate_Data.Paths[Aggregate Output 1]"
+          TopLeft="398,209">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="22.5,56"
+              Start="0,0"
+              End="22.5,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24"
+                    Point2="0,28"
+                    Point3="4,28" />
+                  <mssgle:LineSegment
+                    End="18.5,28" />
+                  <mssgle:CubicBezierSegment
+                    Point1="18.5,28"
+                    Point2="22.5,28"
+                    Point3="22.5,32" />
+                  <mssgle:LineSegment
+                    End="22.5,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Aggregate_Data\Not_Null_Data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

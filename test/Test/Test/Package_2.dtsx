@@ -1,0 +1,650 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable
+  DTS:refId="Package" xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:CreatorName="DESKTOP-SQDJ765\ASUS"
+  DTS:CreatorComputerName="DESKTOP-SQDJ765"
+  DTS:CreationDate="3/12/2022 7:22:19 AM"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{B9BF4228-42C8-4F69-9069-76DFB224A1B8}"
+  DTS:LastModifiedProductVersion="11.0.2100.60"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package_2"
+  DTS:DTSID="{97EFA499-417E-4F66-B437-04E539EEA98F}"
+  DTS:CreationName="SSIS.Package.3">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-SQDJ765\FATMA.Examen]"
+      DTS:ObjectName="DESKTOP-SQDJ765\FATMA.Examen"
+      DTS:DTSID="{B187E578-D23A-46C7-94C0-7C44069F83B2}"
+      DTS:CreationName="OLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=DESKTOP-SQDJ765\FATMA;Initial Catalog=Examen;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:ObjectName="Excel Connection Manager"
+      DTS:DTSID="{A74C28D6-691F-45F0-AE65-17573AC53679}"
+      DTS:CreationName="EXCEL">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\ASUS\Desktop\BI\examen\data-source.xls;Extended Properties=&quot;Excel 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Chargement Sales Data"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Chargement Sales Data"
+      DTS:DTSID="{D918BFF8-F040-4F8B-87BA-623DF88A71A6}"
+      DTS:Description="Data Flow Task"
+      DTS:CreationName="SSIS.Pipeline.3">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Chargement Sales Data\Excel Source"
+              name="Excel Source"
+              componentClassID="{8C084929-27D1-479F-9641-ABB7CDADF1AC}"
+              description="Excel Source"
+              usesDispositions="true"
+              version="1"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1">
+              <properties>
+                <property
+                  name="CommandTimeout"
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out.">0</property>
+                <property
+                  name="OpenRowset"
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset.">Sheet1$</property>
+                <property
+                  name="OpenRowsetVariable"
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."></property>
+                <property
+                  name="SqlCommand"
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  name="SqlCommandVariable"
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."></property>
+                <property
+                  name="AccessMode"
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  typeConverter="AccessMode">0</property>
+                <property
+                  name="ParameterMapping"
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Chargement Sales Data\Excel Source.Connections[OleDbConnection]"
+                  name="OleDbConnection"
+                  description="The OLE DB runtime connection used to access the database."
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Output].Columns[Clientid]"
+                      name="Clientid"
+                      lineageId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Output].Columns[Clientid]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[Clientid]" />
+                    <outputColumn
+                      refId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Output].Columns[First Name]"
+                      name="First Name"
+                      lineageId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Output].Columns[First Name]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[First Name]" />
+                    <outputColumn
+                      refId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Output].Columns[Last Name]"
+                      name="Last Name"
+                      lineageId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Output].Columns[Last Name]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[Last Name]" />
+                    <outputColumn
+                      refId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Output].Columns[City]"
+                      name="City"
+                      lineageId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Output].Columns[City]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[City]" />
+                    <outputColumn
+                      refId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Output].Columns[State]"
+                      name="State"
+                      lineageId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Output].Columns[State]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[State]" />
+                    <outputColumn
+                      refId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Output].Columns[State Abbr]"
+                      name="State Abbr"
+                      lineageId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Output].Columns[State Abbr]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[State Abbr]" />
+                    <outputColumn
+                      refId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Output].Columns[Region]"
+                      name="Region"
+                      lineageId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Output].Columns[Region]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[Region]" />
+                    <outputColumn
+                      refId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Output].Columns[Sales Amount]"
+                      name="Sales Amount"
+                      lineageId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Output].Columns[Sales Amount]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[Sales Amount]" />
+                    <outputColumn
+                      refId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Output].Columns[Unit Price]"
+                      name="Unit Price"
+                      lineageId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Output].Columns[Unit Price]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[Unit Price]" />
+                    <outputColumn
+                      refId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Output].Columns[gender]"
+                      name="gender"
+                      lineageId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Output].Columns[gender]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[gender]" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[Clientid]"
+                      name="Clientid"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[First Name]"
+                      name="First Name"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[Last Name]"
+                      name="Last Name"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[City]"
+                      name="City"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[State]"
+                      name="State"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[State Abbr]"
+                      name="State Abbr"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[Region]"
+                      name="Region"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[Sales Amount]"
+                      name="Sales Amount"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[Unit Price]"
+                      name="Unit Price"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[gender]"
+                      name="gender"
+                      dataType="wstr"
+                      length="255" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Error Output]"
+                  name="Excel Source Error Output"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Error Output].Columns[Clientid]"
+                      name="Clientid"
+                      lineageId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Error Output].Columns[Clientid]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Error Output].Columns[First Name]"
+                      name="First Name"
+                      lineageId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Error Output].Columns[First Name]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Error Output].Columns[Last Name]"
+                      name="Last Name"
+                      lineageId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Error Output].Columns[Last Name]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Error Output].Columns[City]"
+                      name="City"
+                      lineageId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Error Output].Columns[City]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Error Output].Columns[State]"
+                      name="State"
+                      lineageId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Error Output].Columns[State]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Error Output].Columns[State Abbr]"
+                      name="State Abbr"
+                      lineageId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Error Output].Columns[State Abbr]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Error Output].Columns[Region]"
+                      name="Region"
+                      lineageId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Error Output].Columns[Region]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Error Output].Columns[Sales Amount]"
+                      name="Sales Amount"
+                      lineageId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Error Output].Columns[Sales Amount]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Error Output].Columns[Unit Price]"
+                      name="Unit Price"
+                      lineageId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Error Output].Columns[Unit Price]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Error Output].Columns[gender]"
+                      name="gender"
+                      lineageId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Error Output].Columns[gender]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Chargement Sales Data\OLE DB Destination"
+              name="OLE DB Destination"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              description="OLE DB Destination"
+              usesDispositions="true"
+              version="4"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4">
+              <properties>
+                <property
+                  name="CommandTimeout"
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out.">0</property>
+                <property
+                  name="OpenRowset"
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset.">[salesData]</property>
+                <property
+                  name="OpenRowsetVariable"
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."></property>
+                <property
+                  name="SqlCommand"
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  name="DefaultCodePage"
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source.">1252</property>
+                <property
+                  name="AlwaysUseDefaultCodePage"
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data.">false</property>
+                <property
+                  name="AccessMode"
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  typeConverter="AccessMode">0</property>
+                <property
+                  name="FastLoadKeepIdentity"
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on.">false</property>
+                <property
+                  name="FastLoadKeepNulls"
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on.">false</property>
+                <property
+                  name="FastLoadOptions"
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."></property>
+                <property
+                  name="FastLoadMaxInsertCommitSize"
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on.">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Chargement Sales Data\OLE DB Destination.Connections[OleDbConnection]"
+                  name="OleDbConnection"
+                  description="The OLE DB runtime connection used to access the database."
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-SQDJ765\FATMA.Examen]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-SQDJ765\FATMA.Examen]" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Chargement Sales Data\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Destination Input"
+                  hasSideEffects="true"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Chargement Sales Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Clientid]"
+                      lineageId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Output].Columns[Clientid]"
+                      externalMetadataColumnId="Package\Chargement Sales Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Clientid]"
+                      cachedName="Clientid"
+                      cachedDataType="r8" />
+                    <inputColumn
+                      refId="Package\Chargement Sales Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[First Name]"
+                      lineageId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Output].Columns[First Name]"
+                      externalMetadataColumnId="Package\Chargement Sales Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[First Name]"
+                      cachedName="First Name"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\Chargement Sales Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Last Name]"
+                      lineageId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Output].Columns[Last Name]"
+                      externalMetadataColumnId="Package\Chargement Sales Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Last Name]"
+                      cachedName="Last Name"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\Chargement Sales Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[City]"
+                      lineageId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Output].Columns[City]"
+                      externalMetadataColumnId="Package\Chargement Sales Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                      cachedName="City"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\Chargement Sales Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[State]"
+                      lineageId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Output].Columns[State]"
+                      externalMetadataColumnId="Package\Chargement Sales Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[State]"
+                      cachedName="State"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\Chargement Sales Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[State Abbr]"
+                      lineageId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Output].Columns[State Abbr]"
+                      externalMetadataColumnId="Package\Chargement Sales Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[State Abbr]"
+                      cachedName="State Abbr"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\Chargement Sales Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Region]"
+                      lineageId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Output].Columns[Region]"
+                      externalMetadataColumnId="Package\Chargement Sales Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Region]"
+                      cachedName="Region"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\Chargement Sales Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Sales Amount]"
+                      lineageId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Output].Columns[Sales Amount]"
+                      externalMetadataColumnId="Package\Chargement Sales Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sales Amount]"
+                      cachedName="Sales Amount"
+                      cachedDataType="r8" />
+                    <inputColumn
+                      refId="Package\Chargement Sales Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Unit Price]"
+                      lineageId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Output].Columns[Unit Price]"
+                      externalMetadataColumnId="Package\Chargement Sales Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Unit Price]"
+                      cachedName="Unit Price"
+                      cachedDataType="r8" />
+                    <inputColumn
+                      refId="Package\Chargement Sales Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gender]"
+                      lineageId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Output].Columns[gender]"
+                      externalMetadataColumnId="Package\Chargement Sales Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gender]"
+                      cachedName="gender"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Chargement Sales Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Clientid]"
+                      name="Clientid"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement Sales Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[First Name]"
+                      name="First Name"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement Sales Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Last Name]"
+                      name="Last Name"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement Sales Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                      name="City"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement Sales Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[State]"
+                      name="State"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement Sales Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[State Abbr]"
+                      name="State Abbr"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement Sales Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Region]"
+                      name="Region"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement Sales Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sales Amount]"
+                      name="Sales Amount"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement Sales Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Unit Price]"
+                      name="Unit Price"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement Sales Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gender]"
+                      name="gender"
+                      dataType="wstr"
+                      length="255" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Chargement Sales Data\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  name="OLE DB Destination Error Output"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Chargement Sales Data\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement Sales Data\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Chargement Sales Data\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Chargement Sales Data\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Chargement Sales Data\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Chargement Sales Data.Paths[Excel Source Output]"
+              name="Excel Source Output"
+              startId="Package\Chargement Sales Data\Excel Source.Outputs[Excel Source Output]"
+              endId="Package\Chargement Sales Data\OLE DB Destination.Inputs[OLE DB Destination Input]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="188,42"
+          Id="Package\Chargement Sales Data"
+          TopLeft="303,50" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Chargement Sales Data">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="138,42"
+          Id="Package\Chargement Sales Data\Excel Source"
+          TopLeft="310,74" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Chargement Sales Data\OLE DB Destination"
+          TopLeft="297,187" />
+        <EdgeLayout
+          Id="Package\Chargement Sales Data.Paths[Excel Source Output]"
+          TopLeft="380.5,116">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,71"
+              Start="0,0"
+              End="0,63.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,63.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Chargement Sales Data\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Chargement Sales Data\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

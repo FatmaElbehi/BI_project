@@ -1,0 +1,678 @@
+<?xml version="1.0"?>
+<DTS:Executable
+  DTS:refId="Package" xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:CreatorName="DESKTOP-SQDJ765\ASUS"
+  DTS:CreatorComputerName="DESKTOP-SQDJ765"
+  DTS:CreationDate="3/12/2022 1:56:05 PM"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{0EF21F4C-5F23-4A70-9C41-B41A1296C449}"
+  DTS:LastModifiedProductVersion="11.0.2100.60"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package_2"
+  DTS:DTSID="{5AF66231-2997-4D89-84F4-8DBAC8F606D9}"
+  DTS:CreationName="SSIS.Package.3">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-SQDJ765\FATMA.Examen SSIS]"
+      DTS:ObjectName="DESKTOP-SQDJ765\FATMA.Examen SSIS"
+      DTS:DTSID="{04A65EE2-9FCA-4698-AE30-0AC3C14DCC41}"
+      DTS:CreationName="OLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=DESKTOP-SQDJ765\FATMA;Initial Catalog=Examen SSIS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:ObjectName="Excel Connection Manager"
+      DTS:DTSID="{E5ADBFDA-4018-4295-8FE1-058283D04F73}"
+      DTS:CreationName="EXCEL">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\ASUS\Desktop\BI\Examen_FatmaElbehi\ds ssis 2BI2\data source.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Chargement Sale Data"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Chargement Sale Data"
+      DTS:DTSID="{7BAAA87B-EC7B-4B75-9AA3-6830176CB923}"
+      DTS:Description="Data Flow Task"
+      DTS:CreationName="SSIS.Pipeline.3">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Chargement Sale Data\salesdata"
+              name="salesdata"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              description="OLE DB Destination"
+              usesDispositions="true"
+              version="4"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4">
+              <properties>
+                <property
+                  name="CommandTimeout"
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out.">0</property>
+                <property
+                  name="OpenRowset"
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset.">[salesdata]</property>
+                <property
+                  name="OpenRowsetVariable"
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."></property>
+                <property
+                  name="SqlCommand"
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  name="DefaultCodePage"
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source.">1252</property>
+                <property
+                  name="AlwaysUseDefaultCodePage"
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data.">false</property>
+                <property
+                  name="AccessMode"
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  typeConverter="AccessMode">0</property>
+                <property
+                  name="FastLoadKeepIdentity"
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on.">false</property>
+                <property
+                  name="FastLoadKeepNulls"
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on.">false</property>
+                <property
+                  name="FastLoadOptions"
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."></property>
+                <property
+                  name="FastLoadMaxInsertCommitSize"
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on.">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Chargement Sale Data\salesdata.Connections[OleDbConnection]"
+                  name="OleDbConnection"
+                  description="The OLE DB runtime connection used to access the database."
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-SQDJ765\FATMA.Examen SSIS]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-SQDJ765\FATMA.Examen SSIS]" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Chargement Sale Data\salesdata.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Destination Input"
+                  hasSideEffects="true"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Chargement Sale Data\salesdata.Inputs[OLE DB Destination Input].Columns[Index]"
+                      lineageId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].Columns[Index]"
+                      externalMetadataColumnId="Package\Chargement Sale Data\salesdata.Inputs[OLE DB Destination Input].ExternalColumns[Index]"
+                      cachedName="Index"
+                      cachedDataType="r8" />
+                    <inputColumn
+                      refId="Package\Chargement Sale Data\salesdata.Inputs[OLE DB Destination Input].Columns[Prénom]"
+                      lineageId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].Columns[Prénom]"
+                      externalMetadataColumnId="Package\Chargement Sale Data\salesdata.Inputs[OLE DB Destination Input].ExternalColumns[Prénom]"
+                      cachedName="Prénom"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\Chargement Sale Data\salesdata.Inputs[OLE DB Destination Input].Columns[Nom]"
+                      lineageId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].Columns[Nom]"
+                      externalMetadataColumnId="Package\Chargement Sale Data\salesdata.Inputs[OLE DB Destination Input].ExternalColumns[Nom]"
+                      cachedName="Nom"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\Chargement Sale Data\salesdata.Inputs[OLE DB Destination Input].Columns[Date de Naissance]"
+                      lineageId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].Columns[Date de Naissance]"
+                      externalMetadataColumnId="Package\Chargement Sale Data\salesdata.Inputs[OLE DB Destination Input].ExternalColumns[Date de Naissance]"
+                      cachedName="Date de Naissance"
+                      cachedDataType="date" />
+                    <inputColumn
+                      refId="Package\Chargement Sale Data\salesdata.Inputs[OLE DB Destination Input].Columns[Célibatairetatut Mariéarital]"
+                      lineageId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].Columns[Célibatairetatut Mariéarital]"
+                      externalMetadataColumnId="Package\Chargement Sale Data\salesdata.Inputs[OLE DB Destination Input].ExternalColumns[Célibatairetatut Mariéarital]"
+                      cachedName="Célibatairetatut Mariéarital"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\Chargement Sale Data\salesdata.Inputs[OLE DB Destination Input].Columns[Sexe]"
+                      lineageId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].Columns[Sexe]"
+                      externalMetadataColumnId="Package\Chargement Sale Data\salesdata.Inputs[OLE DB Destination Input].ExternalColumns[Sexe]"
+                      cachedName="Sexe"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\Chargement Sale Data\salesdata.Inputs[OLE DB Destination Input].Columns[Revenu annuel]"
+                      lineageId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].Columns[Revenu annuel]"
+                      externalMetadataColumnId="Package\Chargement Sale Data\salesdata.Inputs[OLE DB Destination Input].ExternalColumns[Revenu annuel]"
+                      cachedName="Revenu annuel"
+                      cachedDataType="r8" />
+                    <inputColumn
+                      refId="Package\Chargement Sale Data\salesdata.Inputs[OLE DB Destination Input].Columns[Enfant(s)]"
+                      lineageId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].Columns[Enfant(s)]"
+                      externalMetadataColumnId="Package\Chargement Sale Data\salesdata.Inputs[OLE DB Destination Input].ExternalColumns[Enfant(s)]"
+                      cachedName="Enfant(s)"
+                      cachedDataType="r8" />
+                    <inputColumn
+                      refId="Package\Chargement Sale Data\salesdata.Inputs[OLE DB Destination Input].Columns[Niveau d'étude]"
+                      lineageId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].Columns[Niveau d'étude]"
+                      externalMetadataColumnId="Package\Chargement Sale Data\salesdata.Inputs[OLE DB Destination Input].ExternalColumns[Niveau d'étude]"
+                      cachedName="Niveau d'étude"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\Chargement Sale Data\salesdata.Inputs[OLE DB Destination Input].Columns[Cat# Professionnelle]"
+                      lineageId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].Columns[Cat# Professionnelle]"
+                      externalMetadataColumnId="Package\Chargement Sale Data\salesdata.Inputs[OLE DB Destination Input].ExternalColumns[Cat# Professionnelle]"
+                      cachedName="Cat# Professionnelle"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\Chargement Sale Data\salesdata.Inputs[OLE DB Destination Input].Columns[Adresse]"
+                      lineageId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].Columns[Adresse]"
+                      externalMetadataColumnId="Package\Chargement Sale Data\salesdata.Inputs[OLE DB Destination Input].ExternalColumns[Adresse]"
+                      cachedName="Adresse"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Chargement Sale Data\salesdata.Inputs[OLE DB Destination Input].ExternalColumns[Index]"
+                      name="Index"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement Sale Data\salesdata.Inputs[OLE DB Destination Input].ExternalColumns[Prénom]"
+                      name="Prénom"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement Sale Data\salesdata.Inputs[OLE DB Destination Input].ExternalColumns[Nom]"
+                      name="Nom"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement Sale Data\salesdata.Inputs[OLE DB Destination Input].ExternalColumns[Date de Naissance]"
+                      name="Date de Naissance"
+                      dataType="dbTimeStamp" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement Sale Data\salesdata.Inputs[OLE DB Destination Input].ExternalColumns[Célibatairetatut Mariéarital]"
+                      name="Célibatairetatut Mariéarital"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement Sale Data\salesdata.Inputs[OLE DB Destination Input].ExternalColumns[Sexe]"
+                      name="Sexe"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement Sale Data\salesdata.Inputs[OLE DB Destination Input].ExternalColumns[Revenu annuel]"
+                      name="Revenu annuel"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement Sale Data\salesdata.Inputs[OLE DB Destination Input].ExternalColumns[Enfant(s)]"
+                      name="Enfant(s)"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement Sale Data\salesdata.Inputs[OLE DB Destination Input].ExternalColumns[Niveau d'étude]"
+                      name="Niveau d'étude"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement Sale Data\salesdata.Inputs[OLE DB Destination Input].ExternalColumns[Cat# Professionnelle]"
+                      name="Cat# Professionnelle"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement Sale Data\salesdata.Inputs[OLE DB Destination Input].ExternalColumns[Adresse]"
+                      name="Adresse"
+                      dataType="wstr"
+                      length="255" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Chargement Sale Data\salesdata.Outputs[OLE DB Destination Error Output]"
+                  name="OLE DB Destination Error Output"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Chargement Sale Data\salesdata.Inputs[OLE DB Destination Input]"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement Sale Data\salesdata.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Chargement Sale Data\salesdata.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Chargement Sale Data\salesdata.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Chargement Sale Data\salesdata.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Chargement Sale Data\Sales_Data_Source"
+              name="Sales_Data_Source"
+              componentClassID="{8C084929-27D1-479F-9641-ABB7CDADF1AC}"
+              description="Excel Source"
+              usesDispositions="true"
+              version="1"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1">
+              <properties>
+                <property
+                  name="CommandTimeout"
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out.">0</property>
+                <property
+                  name="OpenRowset"
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset.">Sheet1$</property>
+                <property
+                  name="OpenRowsetVariable"
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."></property>
+                <property
+                  name="SqlCommand"
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  name="SqlCommandVariable"
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."></property>
+                <property
+                  name="AccessMode"
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  typeConverter="AccessMode">0</property>
+                <property
+                  name="ParameterMapping"
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Chargement Sale Data\Sales_Data_Source.Connections[OleDbConnection]"
+                  name="OleDbConnection"
+                  description="The OLE DB runtime connection used to access the database."
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].Columns[Index]"
+                      name="Index"
+                      lineageId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].Columns[Index]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].ExternalColumns[Index]" />
+                    <outputColumn
+                      refId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].Columns[Prénom]"
+                      name="Prénom"
+                      lineageId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].Columns[Prénom]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].ExternalColumns[Prénom]" />
+                    <outputColumn
+                      refId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].Columns[Nom]"
+                      name="Nom"
+                      lineageId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].Columns[Nom]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].ExternalColumns[Nom]" />
+                    <outputColumn
+                      refId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].Columns[Date de Naissance]"
+                      name="Date de Naissance"
+                      lineageId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].Columns[Date de Naissance]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].ExternalColumns[Date de Naissance]" />
+                    <outputColumn
+                      refId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].Columns[Célibatairetatut Mariéarital]"
+                      name="Célibatairetatut Mariéarital"
+                      lineageId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].Columns[Célibatairetatut Mariéarital]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].ExternalColumns[Célibatairetatut Mariéarital]" />
+                    <outputColumn
+                      refId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].Columns[Sexe]"
+                      name="Sexe"
+                      lineageId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].Columns[Sexe]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].ExternalColumns[Sexe]" />
+                    <outputColumn
+                      refId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].Columns[Revenu annuel]"
+                      name="Revenu annuel"
+                      lineageId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].Columns[Revenu annuel]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].ExternalColumns[Revenu annuel]" />
+                    <outputColumn
+                      refId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].Columns[Enfant(s)]"
+                      name="Enfant(s)"
+                      lineageId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].Columns[Enfant(s)]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].ExternalColumns[Enfant(s)]" />
+                    <outputColumn
+                      refId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].Columns[Niveau d'étude]"
+                      name="Niveau d'étude"
+                      lineageId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].Columns[Niveau d'étude]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].ExternalColumns[Niveau d'étude]" />
+                    <outputColumn
+                      refId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].Columns[Cat# Professionnelle]"
+                      name="Cat# Professionnelle"
+                      lineageId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].Columns[Cat# Professionnelle]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].ExternalColumns[Cat# Professionnelle]" />
+                    <outputColumn
+                      refId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].Columns[Adresse]"
+                      name="Adresse"
+                      lineageId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].Columns[Adresse]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].ExternalColumns[Adresse]" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].ExternalColumns[Index]"
+                      name="Index"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].ExternalColumns[Prénom]"
+                      name="Prénom"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].ExternalColumns[Nom]"
+                      name="Nom"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].ExternalColumns[Date de Naissance]"
+                      name="Date de Naissance"
+                      dataType="date" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].ExternalColumns[Célibatairetatut Mariéarital]"
+                      name="Célibatairetatut Mariéarital"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].ExternalColumns[Sexe]"
+                      name="Sexe"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].ExternalColumns[Revenu annuel]"
+                      name="Revenu annuel"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].ExternalColumns[Enfant(s)]"
+                      name="Enfant(s)"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].ExternalColumns[Niveau d'étude]"
+                      name="Niveau d'étude"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].ExternalColumns[Cat# Professionnelle]"
+                      name="Cat# Professionnelle"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output].ExternalColumns[Adresse]"
+                      name="Adresse"
+                      dataType="wstr"
+                      length="255" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Error Output]"
+                  name="Excel Source Error Output"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Error Output].Columns[Index]"
+                      name="Index"
+                      lineageId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Error Output].Columns[Index]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Error Output].Columns[Prénom]"
+                      name="Prénom"
+                      lineageId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Error Output].Columns[Prénom]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Error Output].Columns[Nom]"
+                      name="Nom"
+                      lineageId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Error Output].Columns[Nom]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Error Output].Columns[Date de Naissance]"
+                      name="Date de Naissance"
+                      lineageId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Error Output].Columns[Date de Naissance]"
+                      dataType="date" />
+                    <outputColumn
+                      refId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Error Output].Columns[Célibatairetatut Mariéarital]"
+                      name="Célibatairetatut Mariéarital"
+                      lineageId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Error Output].Columns[Célibatairetatut Mariéarital]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Error Output].Columns[Sexe]"
+                      name="Sexe"
+                      lineageId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Error Output].Columns[Sexe]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Error Output].Columns[Revenu annuel]"
+                      name="Revenu annuel"
+                      lineageId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Error Output].Columns[Revenu annuel]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Error Output].Columns[Enfant(s)]"
+                      name="Enfant(s)"
+                      lineageId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Error Output].Columns[Enfant(s)]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Error Output].Columns[Niveau d'étude]"
+                      name="Niveau d'étude"
+                      lineageId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Error Output].Columns[Niveau d'étude]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Error Output].Columns[Cat# Professionnelle]"
+                      name="Cat# Professionnelle"
+                      lineageId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Error Output].Columns[Cat# Professionnelle]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Error Output].Columns[Adresse]"
+                      name="Adresse"
+                      lineageId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Error Output].Columns[Adresse]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Chargement Sale Data.Paths[Excel Source Output]"
+              name="Excel Source Output"
+              startId="Package\Chargement Sale Data\Sales_Data_Source.Outputs[Excel Source Output]"
+              endId="Package\Chargement Sale Data\salesdata.Inputs[OLE DB Destination Input]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="184,42"
+          Id="Package\Chargement Sale Data"
+          TopLeft="309,74" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Chargement Sale Data">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Chargement Sale Data\Sales_Data_Source"
+          TopLeft="320,83" />
+        <NodeLayout
+          Size="122,42"
+          Id="Package\Chargement Sale Data\salesdata"
+          TopLeft="350,196" />
+        <EdgeLayout
+          Id="Package\Chargement Sale Data.Paths[Excel Source Output]"
+          TopLeft="407.5,125">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,71"
+              Start="0,0"
+              End="0,63.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,63.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Chargement Sale Data\Sales_Data_Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Chargement Sale Data\salesdata">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
